@@ -22,6 +22,10 @@ const userSchema = Schema(
       type: String,
       default: null,
     },
+    avatarURL: {
+      type: String,
+      required: true,
+    },
   },
   { versionKey: false, timestapms: true }
 );
@@ -35,7 +39,7 @@ userSchema.methods.comparePassword = function (password) {
 };
 
 const joiRegisterSchema = Joi.object({
-  password: Joi.string().min(6).required(),
+  password: Joi.string().min(5).required(),
   email: Joi.string().required(),
 });
 
